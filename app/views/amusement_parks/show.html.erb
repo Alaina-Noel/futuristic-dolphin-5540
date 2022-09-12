@@ -7,4 +7,4 @@
 <p> <%= ride.name %></p>
 <p> <% end %></p>
 
-<p>Average Thrill Rating for All Rides: <%= @amusementpark.rides.avg_thrill_rating %></p>
+<p>Average Thrill Rating for All Rides: <%= @amusementpark.rides.avg_thrill_rating.to_f.round(0) %></p>
