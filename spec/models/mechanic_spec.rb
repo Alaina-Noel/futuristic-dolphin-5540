@@ -47,9 +47,9 @@ RSpec.describe Mechanic, type: :model do
   end
 
   describe 'instance methods' do
-    describe '#method_name' do
-     it 'description of method' do
-      #expect statement here
+    describe '#rides_by_thrill' do
+     it 'tells rides for a mechanic by desc order based on thrill' do
+      expect(@alaina.rides_by_thrill).to eq([@superman, @jaws, @teacups])
      end
     end
   end

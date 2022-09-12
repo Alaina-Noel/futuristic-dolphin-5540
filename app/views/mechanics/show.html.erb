@@ -2,7 +2,7 @@
 
 <p>Mechanic Name:<%= @mechanic.name%></p>
 <p>Years Experience:<%= @mechanic.years_experience%></p>
-<p> <% @mechanic.rides.each do |ride| %></p>
+<p> <% @mechanic.rides_by_thrill.each do |ride| %></p>
 <p> <% if ride.open? %></p>
 <p> <%= ride.name %></p>
 <p> <% end %></p>
