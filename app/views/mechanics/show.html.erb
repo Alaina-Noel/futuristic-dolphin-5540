@@ -5,7 +5,8 @@
 <h3>These are <%=@mechanic.name%>'s open rides listed most thrilling to least thrilling </h3>
 <p> <% @mechanic.rides_by_thrill.each do |ride| %></p>
 <p> <% if ride.open? %></p>
-<p> <%= ride.name %></p>
+<p> <%= ride.name %> </p>
+ <p> Thrill rating: <%= ride.thrill_rating %></p>
 <p> <% end %></p>
 <p> <% end %></p>
 

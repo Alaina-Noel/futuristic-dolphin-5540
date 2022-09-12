@@ -51,7 +51,6 @@ RSpec.describe 'amusement park show page', type: :feature do
       
       it "And I see the average thrill rating of this amusement parks rides" do
         visit "/amusement_parks/#{@six_flags.id}"
-        save_and_open_page
         expect(page).to have_content('Average Thrill Rating for All Rides: 6')
         expect(page).to_not have_content('Average Thrill Rating for All Rides: 10')
       end
