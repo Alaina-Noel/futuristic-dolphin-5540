@@ -51,13 +51,24 @@ RSpec.describe 'mechanic show page', type: :feature do
 
       it 'And the rides are listed by thrill rating in descending order (most thrills first)' do
         visit "/mechanics/#{@alaina.id}"
-        save_and_open_page
+  
         expect("Jaws").to appear_before('Small World')
         expect("Small World").to appear_before('Teacup')
+      end
+
+      it 'I see a form to add a ride to their workload' do
+        visit "/mechanics/#{@alaina.id}"
+        expect(page).to have_content("Form to Add a Ride")
+      end
+
+      xit 'I see a form to add a ride to their workload' do
+        visit "/mechanics/#{@alaina.id}"
+        fill_in('ID of Ride:', with: "#{little_mermaid.id}")
+        click_button("Submit Ride")
+        expect(current_path).to eq("/mechanics/#{@alaina.id}")
+        expect(page).to have_content("Little Mermaid")
       end
 
     end
   end
 end
-
-
