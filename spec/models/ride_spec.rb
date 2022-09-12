@@ -8,10 +8,9 @@ RSpec.describe Ride, type: :model do
   end
 
   before(:each) do
-    @six_flags = AmusementPark.create!(name: 'Six Flags', admission_cost: 75)
+          @six_flags = AmusementPark.create!(name: 'Six Flags', admission_cost: 75)
           @universal = AmusementPark.create!(name: 'Universal Studios', admission_cost: 80)
           @disney = AmusementPark.create!(name: 'Disney', admission_cost: 100)
-          
           
           @hurler = @six_flags.rides.create!(name: 'The Hurler', thrill_rating: 7, open: true)
           @scrambler = @six_flags.rides.create!(name: 'The Scrambler', thrill_rating: 4, open: true)
@@ -48,6 +47,16 @@ RSpec.describe Ride, type: :model do
      end
     end
   end
+
+  describe 'class methods' do
+    describe '#avg_thrill_rating' do
+     it 'can tell the average thrill rating across all rides' do
+      expect(@disney.rides.avg_thrill_rating.to_f.round(0)).to eq(5)
+     end
+    end
+  end
+
+
 
 
 end

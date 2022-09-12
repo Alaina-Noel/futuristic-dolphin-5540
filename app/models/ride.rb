@@ -7,5 +7,9 @@ class Ride < ApplicationRecord
   self.open == true
  end
 
+ def self.avg_thrill_rating
+    average(:thrill_rating)
+ end
+
 end
 
