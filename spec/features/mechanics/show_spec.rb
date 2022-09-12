@@ -51,6 +51,7 @@ RSpec.describe 'mechanic show page', type: :feature do
 
       it 'And the rides are listed by thrill rating in descending order (most thrills first)' do
         visit "/mechanics/#{@alaina.id}"
+        save_and_open_page
         expect("Jaws").to appear_before('Small World')
         expect("Small World").to appear_before('Teacup')
       end
