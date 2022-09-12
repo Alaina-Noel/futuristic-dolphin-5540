@@ -6,8 +6,7 @@ RSpec.describe 'mechanic show page', type: :feature do
         before :each do
           @six_flags = AmusementPark.create!(name: 'Six Flags', admission_cost: 75)
           @universal = AmusementPark.create!(name: 'Universal Studios', admission_cost: 80)
-          @disney = AmusementPark.create!(name: 'Disney', admission_cost: 100)
-          
+          @disney = AmusementPark.create!(name: 'Disney', admission_cost: 100) 
           
           @hurler = @six_flags.rides.create!(name: 'The Hurler', thrill_rating: 7, open: true)
           @scrambler = @six_flags.rides.create!(name: 'The Scrambler', thrill_rating: 4, open: true)

@@ -9,6 +9,6 @@ class MechanicRidesController < ApplicationController
 
   private
   def mechanic_ride_params
-    params.permit(:ride_id, :id) #try action too if this doens't work
+    params.permit(:ride_id, :id)
   end
 end
