@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'mechanic show page', type: :feature do
+RSpec.describe 'amusement park show page', type: :feature do
   describe 'As a visitor' do
-    describe 'When I visit the mechanics show page' do
+    describe 'When I visit the amusement park show page' do
         before :each do
           @six_flags = AmusementPark.create!(name: 'Six Flags', admission_cost: 75)
           @universal = AmusementPark.create!(name: 'Universal Studios', admission_cost: 80)
           @disney = AmusementPark.create!(name: 'Disney', admission_cost: 100)
-          
-          
+            
           @hurler = @six_flags.rides.create!(name: 'The Hurler', thrill_rating: 7, open: true)
           @scrambler = @six_flags.rides.create!(name: 'The Scrambler', thrill_rating: 4, open: true)
           @ferris = @six_flags.rides.create!(name: 'Ferris Wheel', thrill_rating: 7, open: false)
@@ -36,39 +35,28 @@ RSpec.describe 'mechanic show page', type: :feature do
           @sydney_teacups = MechanicRide.create!(mechanic_id: @sydney.id, ride_id: @teacups.id)
         end
 
-      it 'I see their name, years of experience, and the names of rides theyre working on
-      And I only see rides that are open' do
+      it 'I see the name and price of admissions for that amusement park' do
 
-        visit "/mechanics/#{@alaina.id}"
-        expect(page).to have_content("Mechanic Name:#{@alaina.name}")
-        expect(page).to have_content("Years Experience:#{@alaina.years_experience}")
-        expect(page).to_not have_content("#{@ryan.name}")
-        expect(page).to have_content("Teacups")
-        expect(page).to have_content("Jaws")
-        expect(page).to have_content("Small World")
-        expect(page).to_not have_content("Superman")
+        visit "/amusement_parks/#{@six_flags.id}"
+        expect(page).to have_content("#{@six_flags.name}")
+        expect(page).to have_content("#{@six_flags.admission_cost}")
+      end
+      
+      xit 'And I see the names of all the rides that are at that theme park listed in alphabetical order' do
+        visit "/amusement_parks/#{@six_flags.id}"
+        save_and_open_page
+        expect("Ferris Wheel").to appear_before('The Hurler')
+        expect("The Hurler").to appear_before('The Scrambler')
       end
 
-      it 'And the rides are listed by thrill rating in descending order (most thrills first)' do
-        visit "/mechanics/#{@alaina.id}"
-  
-        expect("Jaws").to appear_before('Small World')
-        expect("Small World").to appear_before('Teacup')
-      end
 
-      it 'I see a form to add a ride to their workload' do
-        visit "/mechanics/#{@alaina.id}"
-        expect(page).to have_content("Form to Add a Ride")
-      end
-
-      it 'I see a form to add a ride to their workload' do
-        visit "/mechanics/#{@alaina.id}"
-        fill_in('ID of Ride:', with: "#{@little_mermaid.id}")
-        click_button("Submit Ride")
-        expect(current_path).to eq("/mechanics/#{@alaina.id}")
-        expect(page).to have_content("Little Mermaid")
+      xit "And I see the average thrill rating of this amusement parks rides" do
+        visit "/amusement_parks/#{@six_flags.id}"
+        expect(page).to have_content('Average Thrill Rating for All Rides: 6')
+        expect(page).to_not have_content('Average Thrill Rating for All Rides: 10')
       end
 
     end
   end
 end
+
