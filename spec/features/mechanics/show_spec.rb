@@ -45,7 +45,7 @@ RSpec.describe 'mechanic show page', type: :feature do
         expect(page).to_not have_content("#{@ryan.name}")
         expect(page).to have_content("Teacups")
         expect(page).to have_content("Jaws")
-        expect(page).to have_content("Small World'")
+        expect(page).to have_content("Small World")
         expect(page).to_not have_content("Superman")
       end
 

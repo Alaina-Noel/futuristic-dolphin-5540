@@ -45,7 +45,6 @@ RSpec.describe Ride, type: :model do
      it 'can tell if a ride is open or not' do
       expect(@superman.open?).to be(false)
       expect(@teacups.open?).to be(true)
-
      end
     end
   end
