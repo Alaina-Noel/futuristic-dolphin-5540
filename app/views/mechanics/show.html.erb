@@ -9,6 +9,7 @@
 <p> <% end %></p>
 <p> <% end %></p>
 
+<h4>Form to Add a Ride</h4>
 <p><%= form_with url: "/mechanics/#{@mechanic.id}/rides/new", method: :post, local: true do |form|  %>
 <p><%= form.label :ride_id, "ID of Ride:" %></p>
 <p><%= form.text_field :ride_id %></p>
