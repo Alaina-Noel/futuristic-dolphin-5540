@@ -61,11 +61,12 @@ RSpec.describe 'mechanic show page', type: :feature do
         expect(page).to have_content("Form to Add a Ride")
       end
 
-      xit 'I see a form to add a ride to their workload' do
+      it 'I see a form to add a ride to their workload' do
         visit "/mechanics/#{@alaina.id}"
-        fill_in('ID of Ride:', with: "#{little_mermaid.id}")
+        fill_in('ID of Ride:', with: "#{@little_mermaid.id}")
         click_button("Submit Ride")
         expect(current_path).to eq("/mechanics/#{@alaina.id}")
+        # save_and_open_page
         expect(page).to have_content("Little Mermaid")
       end
 
