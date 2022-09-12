@@ -42,9 +42,9 @@ RSpec.describe 'amusement park show page', type: :feature do
         expect(page).to have_content("#{@six_flags.admission_cost}")
       end
       
-      xit 'And I see the names of all the rides that are at that theme park listed in alphabetical order' do
+      it 'And I see the names of all the rides that are at that theme park listed in alphabetical order' do
         visit "/amusement_parks/#{@six_flags.id}"
-        save_and_open_page
+        # save_and_open_page
         expect("Ferris Wheel").to appear_before('The Hurler')
         expect("The Hurler").to appear_before('The Scrambler')
       end

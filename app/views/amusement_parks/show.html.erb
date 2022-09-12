@@ -2,3 +2,7 @@
 
 <p> <%= @amusementpark.name %></p>
 <p> <%= @amusementpark.admission_cost %></p>
+<p> <% @amusementpark.rides_alpha_ordered.each do |ride| %></p>
+<p> <%= ride.name %></p>
+<p> <% end %></p>
+
